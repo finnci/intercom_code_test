@@ -4,7 +4,7 @@ from math import radians, sin, cos, acos
 
 class InviteCustomers(object):
     def __init__(self, office, customer_file_path, max_distance):
-        self.office = office  # (53.339428, -6.257664)
+        self.office = office
         self.customer_file_path = customer_file_path
         self.max_distance = max_distance
         self.customers = []
@@ -37,13 +37,16 @@ class InviteCustomers(object):
         final_resp = 6371 * (acos(sin(office_lat) * sin(user_lat)
                              + cos(office_lat) * cos(user_lat) *
                              cos(office_lon - user_lon)))
-        print(final_resp)
         return final_resp
 
     def get_customer_file(self):
-        with open(self.customer_file_path, 'r') as f:
-            customers = f.readlines()
-        self.customers = customers
+        try:
+            with open(self.customer_file_path, 'r') as f:
+               customers = f.readlines()
+            self.customers = customers
+        except FileNotFoundError as e:
+            print("No file found at {}".format(self.customer_file_path))
+            raise e
 
     def is_close(self, d):
         if d <= self.max_distance:
@@ -81,4 +84,4 @@ class InviteCustomers(object):
         '''
         self.get_customer_file()
         valid_invites = self.find_valid_invites()
-        print(self.prepare_response(valid_invites))
+        return self.prepare_response(valid_invites)
