@@ -1,9 +1,6 @@
 # Intercom Code Test
 
-How to run?
-===========
-
-# Option 1
+# How to run: Option 1 - local python
 
 To run this code on your own machine, you will need to do as follows:
 
@@ -59,10 +56,18 @@ $ python run_invites.py --config_path='./config_2.yml' --customer_overwrite="./t
 ```
 will run the same code, but using a different config_2.yml and a different customers file.
 
+You can run the unittests as follows:
+```
+$ python tests.py
+.No file found at ./ccc.txt
+.....
+----------------------------------------------------------------------
+Ran 6 tests in 0.009s
 
-# Option 2
+OK
+```
 
-Docker.
+# How to run: Option 2 - Docker
 
 Assuming you have Docker installed you can do as follows with my makefile:
 ```
@@ -70,7 +75,22 @@ make docker_build
 ```
 Then you can run the image as follows:
 ```
-docker run intercom_test
+$ docker run intercom_test
+Starting real invites
+
+Users To Invite:
+4 - Ian Kehoe
+5 - Nora Dempsey
+6 - Theresa Enright
+8 - Eoin Ahearn
+11 - Richard Finnegan
+12 - Christina McArdle
+13 - Olive Ahearn
+15 - Michael Ahearn
+23 - Eoin Gallagher
+24 - Rose Enright
+31 - Alan Behan
+39 - Lisa Ahearn
 ```
 
 All the same params as mentioned in Option 1 will also work here.
