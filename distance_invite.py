@@ -3,6 +3,12 @@ from math import radians, sin, cos, acos
 
 
 class InviteCustomers(object):
+    '''
+    Class to load up a list of customers from a given file
+    path, and using the Great Circle Distance formula, find out
+    which customers are within some given distance between their
+    long/lat and their office
+    '''
     def __init__(self, office, customer_file_path, max_distance):
         self.office = office
         self.customer_file_path = customer_file_path
@@ -27,12 +33,13 @@ class InviteCustomers(object):
         to apply to a limited area).
         Using the mean earth radius, R 1 = 1 3 ( 2 a + b ) ≈ 6371 km
         https://en.wikipedia.org/wiki/Great-circle_distance#Radius_for_spherical_Earth
+        Probably need to refactor if we ever move planet
         '''
         # step #1, convert to radians
         to_convert = [float(office_lon), float(office_lat),
                       float(user_lon), float(user_lat)]
         office_lon, office_lat, user_lon, user_lat = map(radians, to_convert)
-        # next formula:
+        # step #2: next, apply formula fro m wiki:
         # r * (acos(sin(a0) * sin(v0) + cos(a0) * cos(v0) * cos(a1 - v1)))
         final_resp = 6371 * (acos(sin(office_lat) * sin(user_lat)
                              + cos(office_lat) * cos(user_lat) *
