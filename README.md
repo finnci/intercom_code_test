@@ -16,6 +16,8 @@ I have a InviteCustomers class defined in [distance_invite.py](distance_invite.p
 
 To run the code and interact with this class I have used a basic python script named [run_invites.py](run_invites.py) & [argparse](https://docs.python.org/3/library/argparse.html) to pass in varying configs or customers.txt files, these all fall back on 'reasonale' defaults (mostly based on how the question was phrased.
 
+Pip dependencies are listed, with versions, in [requirements.txt](requirements.txt).
+
 # How to run: Option 1 - local python
 
 To run this code on your own machine, you will need to do as follows:
