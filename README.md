@@ -1,11 +1,13 @@
-# intercom_code_test
+# Intercom Code Test
 
-How to run the program
-======================
+How to run?
+===========
 
-I run the code with a version of Python3 inside a virtualenv.
+# Option 1
 
-This can be created on OSX like this:
+To run this code on your own machine, you will need to do as follows:
+
+This can be created on OSX like this, other OS's will likely vary:
 ```
 $ brew install pyenv
 $ pyenv install 3.7.4
@@ -58,3 +60,33 @@ $ python run_invites.py --config_path='./config_2.yml' --customer_overwrite="./t
 will run the same code, but using a different config_2.yml and a different customers file.
 
 
+# Option 2
+
+Docker.
+
+Assuming you have Docker installed you can do as follows with my makefile:
+```
+make docker_build
+```
+Then you can run the image as follows:
+```
+docker run intercom_test
+```
+
+All the same params as mentioned in Option 1 will also work here.
+
+For example, to pass a new config file you can do as follows:
+```
+docker run intercom_test --config_path="./config.yml"
+```
+
+You can also run the code unittests with the same docker image:
+```
+$ docker run intercom_test test
+running tests
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.004s
+
+OK
+```
