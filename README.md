@@ -20,6 +20,7 @@ Pip dependencies are listed, with versions, in [requirements.txt](requirements.t
 
 # How to run: Option 1 - local python
 
+First, clone & cd to this repo on a local machine.
 To run this code on your own machine, you will need to do as follows:
 
 This can be created on OSX like this, other OS's will likely vary:
@@ -86,6 +87,9 @@ OK
 ```
 
 # How to run: Option 2 - Docker
+
+
+First, clone & cd to this repo on a local machine.
 
 Assuming you have Docker installed you can do as follows with my makefile:
 ```
