@@ -2,17 +2,16 @@
 
 How to run the program
 ======================
-Note:
 
-Run the following with a version of Python3 inside a virtualenv.
+I run the code with a version of Python3 inside a virtualenv.
 
-Created on OSX like this:
+This can be created on OSX like this:
 ```
 $ brew install pyenv
 $ pyenv install 3.7.4
 $ pip install virtualenv
 $ mkdir -p ~/.venvs/intercom
-$ virtualenv --python=$HOME/.pyenv/versions/3.5.6/bin/python ~/.venvs/intercom
+$ virtualenv --python=$HOME/.pyenv/versions/3.7.4/bin/python ~/.venvs/intercom
 $ . ~/.venvs/intercom/bin/activate
 ```
 
@@ -57,3 +56,5 @@ For example:
 $ python run_invites.py --config_path='./config_2.yml' --customer_overwrite="./test_customers.txt"
 ```
 will run the same code, but using a different config_2.yml and a different customers file.
+
+
