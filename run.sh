@@ -1,4 +1,2 @@
 #!/bin/bash -e
-echo "Starting Program"
-exec python run_invites.py
-echo "Complete"
+exec python run_invites.py $1 $2
