@@ -11,6 +11,11 @@ We have some customer records in a text file (customers.txt) -- one customer per
 - You can find the Customer list here.
 
 
+# Answer Description
+I have a InviteCustomers class defined in [distance_invite.py](distance_invite.py), this class can be created with a few parameters, an office param allows us pass in the long/lat coordinates for the office, a customers filepath allows us to find where a list of customers is stored, and a max_distance is used to figure out the max distance between our customers and the office that makes it acceptable to invite the users.
+
+To run the code and interact with this class I have used a basic python script named [run_invites.py](run_invites.py] & [argparse](https://docs.python.org/3/library/argparse.html) to pass in varying configs or customers.txt files, these all fall back on 'reasonale' defaults (mostly based on how the question was phrased.
+
 # How to run: Option 1 - local python
 
 To run this code on your own machine, you will need to do as follows:
