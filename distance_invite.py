@@ -16,6 +16,8 @@ class InviteCustomers(object):
 
         returns distance between the given two.
         '''
+        office_lon, office_lat = self.office
+        user_lon, user_lat = user
         radius = 6371
         '''
         6371 - magic number explained:
@@ -26,13 +28,16 @@ class InviteCustomers(object):
         Using the mean earth radius, R 1 = 1 3 ( 2 a + b ) ≈ 6371 km
         https://en.wikipedia.org/wiki/Great-circle_distance#Radius_for_spherical_Earth
         '''
-        office_lon, office_lat = self.office
-        user_lon, user_lat = user
-        to_convert = [float(office_lon), float(office_lat), float(user_lon), float(user_lat)]
+        # step #1, convert to radians
+        to_convert = [float(office_lon), float(office_lat),
+                      float(user_lon), float(user_lat)]
         office_lon, office_lat, user_lon, user_lat = map(radians, to_convert)
+        # next formula:
+        # r * (acos(sin(a0) * sin(v0) + cos(a0) * cos(v0) * cos(a1 - v1)))
         final_resp = 6371 * (acos(sin(office_lat) * sin(user_lat)
                              + cos(office_lat) * cos(user_lat) *
                              cos(office_lon - user_lon)))
+        print(final_resp)
         return final_resp
 
     def get_customer_file(self):
