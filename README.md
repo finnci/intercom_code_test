@@ -128,3 +128,8 @@ Ran 6 tests in 0.004s
 
 OK
 ```
+
+
+# TODO
+1. write tests for run_invites.py
+2. publish docker image so i can just install & run it without even cloning the repo.
