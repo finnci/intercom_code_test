@@ -13,7 +13,6 @@ def run(conf_path, customer_overwrite):
         raise e
     office = config.get('office')
     if customer_overwrite:
-
         # user specified a different file from the one in our
         # config
         file_name = customer_overwrite
@@ -29,10 +28,12 @@ def run(conf_path, customer_overwrite):
         print(results_format.format(user_id=r['user_id'], name=r['name']))
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Allow a user to define some config files & customer.txt files')
+    parser = argparse.ArgumentParser(description='Allow a user to define some'
+                                    ' config files & customer.txt files')
     parser.add_argument('--config_path', help='file path for config',
                         default='./config.yml')
-    parser.add_argument('--customer_overwrite', help='file path for a different customers.txt',
+    parser.add_argument('--customer_overwrite',
+                        help='file path for a different customers.txt',
                         default=False)
 
     args = parser.parse_args()
